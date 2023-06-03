@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    height: 100vh; /* Set the container height to fill the viewport */
+  }
+  
+  .content {
+    flex: 1; /* Make the content area flex to take remaining height */
+    display: flex;
+    flex-direction: column;
+  }
+  
