@@ -5,16 +5,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BreakoutComponent } from './breakout/breakout.component';
 import { HighScoresComponent } from './high-scores/high-scores.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BreakoutComponent,
-    HighScoresComponent
+    HighScoresComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

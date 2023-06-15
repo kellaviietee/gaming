@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HighScore } from './high-score.model';
 
 
@@ -15,10 +15,17 @@ export class HighScoresComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.http.get<HighScore[]>('http://localhost:8080/api/highscore/all')
+    const username = 'user';
+    const password = 'password';
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(username + ':' + password)
+    });
+  
+    this.http.get<HighScore[]>('http://localhost:8080/api/highscore/all', { headers })
       .subscribe(
         (highScores: HighScore[]) => {
           this.highScores = highScores;
+          console.log("highscores are:" + this.highScores)
         },
         (error: any) => {
           console.error('Error fetching high scores:', error);
